@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спасем Сашу от HDD! — Сбор на SSD</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neonGreen: '#00ff66',
+                        neonPurple: '#b026ff',
+                        neonCyan: '#00f0ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & Press Start 2P for gamer vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti for celebratory animations -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .gamer-font {
+            font-family: 'Press Start 2P', monospace;
+        }
+        .neon-glow-green {
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+        }
+        .neon-glow-purple {
+            box-shadow: 0 0 25px rgba(176, 38, 255, 0.4);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-neonGreen selection:text-black">
+
+    <header class="w-full py-4 px-6 border-b border-gray-800 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-neonGreen/10 border border-neonGreen text-neonGreen p-2 rounded-xl animate-pulse">
+                    <i class="fa-solid fa-hard-drive text-xl"></i>
+                </div>
+                <span class="gamer-font text-xs md:text-sm text-neonGreen tracking-wider">SASHA_SSD.EXE</span>
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-gray-400 bg-gray-900 px-3 py-1.5 rounded-full border border-gray-800">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                <span>Статус: Саша страдает от загрузки в 10 минут</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 md:py-12 space-y-12">
+        
+        <!-- Hero Banner -->
+        <section class="text-center space-y-6">
+            <div class="inline-block bg-gradient-to-r from-neonGreen/20 to-neonCyan/20 border border-neonGreen/40 text-neonGreen px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-2">
+                🚨 Официальная благотворительная акция корешей
+            </div>
+            <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight">
+                Спасем Сашин комп от <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">трещащего HDD</span>!
+            </h1>
+            <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+                Каждый раз, когда Саша запускает игру, его жесткий диск издает звуки взлетающего Боинга 747. Давайте скинемся пацану на нормальный NVMe SSD, пока он не сошел с ума от экранов загрузки.
+            </p>
+        </section>
+
+        <!-- Sasha's Photo & Current Mood Card -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center bg-gray-900/60 border border-gray-800 rounded-3xl p-6 md:p-8 backdrop-blur shadow-2xl">
+            <div class="md:col-span-1 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-neonGreen to-neonCyan rounded-2xl blur opacity-30 group-opacity-100 transition duration-500"></div>
+                    <img src="https://placehold.co/300x300/111827/00ff66?text=Sasha+Waiting" 
+                         onerror="this.src='https://placehold.co/300x300/111827/ffffff?text=Sasha+HDD'"
+                         alt="Саша ждет загрузку игры" 
+                         class="relative rounded-2xl w-48 h-48 md:w-full md:h-64 object-cover border border-gray-700 shadow-xl">
+                    <div class="absolute bottom-2 right-2 bg-black/80 backdrop-blur text-xs px-2.5 py-1 rounded-lg text-neonGreen border border-neonGreen/30 font-mono">
+                        FPS: 4 (в меню)
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex items-center space-x-2 text-neonCyan font-semibold">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Системное предупреждение Сашиного ПК:</span>
+                </div>
+                <blockquote class="italic text-gray-300 border-l-4 border-neonGreen pl-4 py-1 text-sm md:text-base">
+                    «Пацаны, я серьезно, у меня текстуры в киберпанке прогружаются только когда я уже умираю. Помогите купить SSD на терабайт, ради всего святого!»
+                </blockquote>
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="bg-gray-950/60 p-3 rounded-xl border border-gray-800">
+                        <div class="text-xs text-gray-500">Текущий диск</div>
+                        <div class="text-sm font-semibold text-red-400">WD Blue 5400 RPM (10 лет в обед)</div>
+                    </div>
+                    <div class="bg-gray-950/60 p-3 rounded-xl border border-gray-800">
+                        <div class="text-xs text-gray-500">Цель сбора</div>
+                        <div class="text-sm font-semibold text-neonGreen">Samsung 980 PRO NVMe M.2</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-900/60 border border-gray-800 rounded-3xl p-6 md:p-8 backdrop-blur shadow-2xl space-y-6">
+            <div class="flex justify-between items-end">
+                <div>
+                    <h2 class="text-lg md:text-xl font-bold">Прогресс спасения Саши</h2>
+                    <p class="text-xs text-gray-400">Собрано на новый накопитель</p>
+                </div>
+                <div class="text-right">
+                    <span id="collected-amount" class="text-2xl md:text-3xl font-extrabold text-neonGreen">3,450 ₽</span>
+                    <span class="text-gray-500 text-sm">/ 7,000 ₽</span>
+                </div>
+            </div>
+
+            <!-- Custom Progress Bar -->
+            <div class="space-y-2">
+                <div class="w-full bg-gray-950 rounded-full h-5 p-1 border border-gray-800 overflow-hidden relative">
+                    <div id="progress-bar" class="bg-gradient-to-r from-neonGreen via-neonCyan to-neonPurple h-full rounded-full transition-all duration-500 w-[49%] relative">
+                        <div class="absolute inset-0 bg-white/20 animate-pulse rounded-full"></div>
+                    </div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400 font-mono">
+                    <span id="loading-speed-text">Скорость загрузки Сашиного ПК: 49%</span>
+                    <span>Осталось долета текстур: 3,550 ₽</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Donate Form Box -->
+            <div class="bg-gray-900/60 border border-gray-800 rounded-3xl p-6 md:p-8 backdrop-blur shadow-2xl space-y-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold flex items-center space-x-2">
+                        <i class="fa-solid fa-gift text-neonPurple"></i>
+                        <span>Закинуть Саше на SSD</span>
+                    </h3>
+                    
+                    <div class="grid grid-cols-3 gap-3">
+                        <button type="button" onclick="selectPreset(100)" class="preset-btn py-3 rounded-xl border border-gray-700 bg-gray-950 text-sm font-semibold hover:border-neonGreen hover:text-neonGreen transition">100 ₽</button>
+                        <button type="button" onclick="selectPreset(300)" class="preset-btn py-3 rounded-xl border border-gray-700 bg-gray-950 text-sm font-semibold hover:border-neonGreen hover:text-neonGreen transition">300 ₽</button>
+                        <button type="button" onclick="selectPreset(500)" class="preset-btn py-3 rounded-xl border border-gray-700 bg-gray-950 text-sm font-semibold hover:border-neonGreen hover:text-neonGreen transition">500 ₽</button>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Своя сумма (руб)</label>
+                            <input type="number" id="donation-amount" value="300" min="10" max="50000" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonGreen font-mono">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Твое имя / Ник</label>
+                            <input type="text" id="donor-name" placeholder="Например: Дядя Богдан" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonGreen">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Сообщение Саше</label>
+                            <input type="text" id="donor-message" placeholder="Хватит страдать, покупай NVMe!" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonGreen">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="handleDonate()" class="w-full mt-6 py-4 rounded-2xl bg-gradient-to-r from-neonGreen to-emerald-500 text-black font-extrabold text-lg tracking-wide hover:brightness-110 active:scale-[0.99] transition neon-glow-green shadow-lg flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>ЗАДАТЬ УСКОРЕНИЕ САШЕ</span>
+                </button>
+            </div>
+
+            <!-- Fake Recent Donations List -->
+            <div class="bg-gray-900/60 border border-gray-800 rounded-3xl p-6 md:p-8 backdrop-blur shadow-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-bold flex items-center space-x-2">
+                            <i class="fa-solid fa-clock-rotate-left text-neonCyan"></i>
+                            <span>Последние пожертвования</span>
+                        </h3>
+                        <span class="text-xs bg-gray-800 text-gray-400 px-2.5 py-1 rounded-full">Live</span>
+                    </div>
+
+                    <div id="donations-list" class="space-y-3 max-h-[320px] overflow-y-auto pr-1">
+                        <!-- Initial Donors -->
+                        <div class="bg-gray-950/70 border border-gray-800/80 p-3.5 rounded-2xl flex justify-between items-center">
+                            <div class="space-y-0.5">
+                                <div class="font-semibold text-sm text-gray-200">Пацаны с района</div>
+                                <div class="text-xs text-gray-500 italic">«На первый запуск Виндовс без зависания»</div>
+                            </div>
+                            <div class="text-neonGreen font-mono font-bold text-sm bg-neonGreen/10 px-2.5 py-1 rounded-xl border border-neonGreen/20">+1,000 ₽</div>
+                        </div>
+                        <div class="bg-gray-950/70 border border-gray-800/80 p-3.5 rounded-2xl flex justify-between items-center">
+                            <div class="space-y-0.5">
+                                <div class="font-semibold text-sm text-gray-200">Илюха SSD-Мастер</div>
+                                <div class="text-xs text-gray-500 italic">«Хватит терпеть треск диска!»</div>
+                            </div>
+                            <div class="text-neonGreen font-mono font-bold text-sm bg-neonGreen/10 px-2.5 py-1 rounded-xl border border-neonGreen/20">+500 ₽</div>
+                        </div>
+                        <div class="bg-gray-950/70 border border-gray-800/80 p-3.5 rounded-2xl flex justify-between items-center">
+                            <div class="space-y-0.5">
+                                <div class="font-semibold text-sm text-gray-200">Мама Саши</div>
+                                <div class="text-xs text-gray-500 italic">«Выключи компьютер и иди суп ешь»</div>
+                            </div>
+                            <div class="text-neonGreen font-mono font-bold text-sm bg-neonGreen/10 px-2.5 py-1 rounded-xl border border-neonGreen/20">+1,500 ₽</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-800 text-center">
+                    <p class="text-xs text-gray-500">Все средства идут исключительно на спасение нервных клеток Саши.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="w-full py-6 text-center border-t border-gray-800 bg-gray-950/80 text-xs text-gray-500">
+        <p>© 2026 Фонд помощи Сашиному железу. Ни один HDD не пострадал (почти).</p>
+    </footer>
+
+    <!-- Custom Modal / Message Box (Replaces alert) -->
+    <div id="custom-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-gray-900 border border-neonGreen/50 rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl neon-glow-green text-center space-y-4">
+            <div class="w-16 h-16 bg-neonGreen/20 border border-neonGreen rounded-2xl flex items-center justify-center mx-auto text-neonGreen text-2xl animate-bounce">
+                <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-white">Успех! Саша ускоряется!</h3>
+            <p id="modal-message" class="text-gray-300 text-sm">Твой вклад успешно учтен. Скорость загрузки повышена на 5%!</p>
+            <button onclick="closeModal()" class="w-full py-3 bg-neonGreen text-black font-bold rounded-xl hover:brightness-110 transition">
+                Круто, ждем SSD!
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // State variables
+        let currentTotal = 3450;
+        const targetTotal = 7000;
+
+        function selectPreset(amount) {
+            document.getElementById('donation-amount').value = amount;
+            // Highlight active preset button
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('border-neonGreen', 'text-neonGreen', 'bg-neonGreen/10');
+            });
+            event.target.classList.add('border-neonGreen', 'text-neonGreen', 'bg-neonGreen/10');
+        }
+
+        function updateProgress(addedAmount) {
+            currentTotal += addedAmount;
+            if (currentTotal > targetTotal) currentTotal = targetTotal;
+            
+            const percentage = Math.round((currentTotal / targetTotal) * 100);
+            
+            // Update UI elements
+            document.getElementById('collected-amount').innerText = currentTotal.toLocaleString() + ' ₽';
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('loading-speed-text').innerText = `Скорость загрузки Сашиного ПК: ${percentage}%`;
+        }
+
+        function handleDonate() {
+            const amountInput = document.getElementById('donation-amount');
+            const nameInput = document.getElementById('donor-name');
+            const msgInput = document.getElementById('donor-message');
+
+            const amount = parseInt(amountInput.value) || 100;
+            const name = nameInput.value.trim() || 'Анонимный Кореш';
+            const message = msgInput.value.trim() || 'На новый твердотельник!';
+
+            // Update progress
+            updateProgress(amount);
+
+            // Add to recent donations list
+            const list = document.getElementById('donations-list');
+            const newItem = document.createElement('div');
+            newItem.className = 'bg-gray-950/70 border border-gray-800/80 p-3.5 rounded-2xl flex justify-between items-center animate-fade-in';
+            newItem.innerHTML = `
+                <div class="space-y-0.5">
+                    <div class="font-semibold text-sm text-gray-200">${escapeHtml(name)}</div>
+                    <div class="text-xs text-gray-500 italic">«${escapeHtml(message)}»</div>
+                </div>
+                <div class="text-neonGreen font-mono font-bold text-sm bg-neonGreen/10 px-2.5 py-1 rounded-xl border border-neonGreen/20">+${amount.toLocaleString()} ₽</div>
+            `;
+            list.insertBefore(newItem, list.firstChild);
+
+            // Trigger Confetti
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+
+            // Show Custom Modal
+            showModal('Спасибо за донат, бро!', `Твой вклад в размере ${amount.toLocaleString()} ₽ успешно зачислен. Саша уже выбирает модель с подсветкой!`);
+
+            // Reset inputs
+            msgInput.value = '';
+        }
+
+        function showModal(title, message) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+    </script>
+</body>
+</html>
